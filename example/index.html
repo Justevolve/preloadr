@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Preloadr</title>
+	<style>
+		div {
+			opacity: 0;
+			transition: opacity 1s;
+		}
+
+		.all-loaded div {
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<button type="button" onClick="load()">Start loading</button>
+
+	<main id="main">
+		<div>Horay, all modules have loaded!</div>
+	</main>
+
+	<script src="../src/evolvethemes-preloadr.js"></script>
+	<script>
+		var queue = [
+			"first_module",
+			"second_module"
+		];
+
+		window.Preloadr.init( queue );
+
+		function load() {
+			setTimeout( function() {
+				window.Preloadr.complete( "first_module" );
+
+				setTimeout( function() {
+					window.Preloadr.complete( "second_module" );
+				}, 3000 );
+			}, 1000 );
+		}
+
+		document.documentElement.addEventListener( 'evolvethemes-preloader-element-first_module-loaded', function() {
+			console.log( "First module loaded!" );
+		} );
+
+		document.documentElement.addEventListener( 'evolvethemes-preloader-element-second_module-loaded', function() {
+			console.log( "Second module loaded!" );
+		} );
+
+		document.documentElement.addEventListener( 'evolvethemes-preloader-loaded', function() {
+			document.body.classList.add( "all-loaded" );
+			console.log( "All loaded!" );
+		} );
+	</script>
+</body>
+</html>

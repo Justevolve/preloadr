@@ -1,0 +1,36 @@
+{
+  "name": "evolvethemes-preloadr",
+  "version": "1.0.0",
+  "description": "JavaScript library to detect when a given set of elements has fully loaded.",
+  "homepage": "https://github.com/Justevolve/preloadr#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Justevolve/preloadr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Justevolve/preloadr/issues"
+  },
+  "main": "src/evolvethemes-preloadr.js",
+  "scripts": {
+    "lint": "jshint --verbose src/evolvethemes-preloadr.js",
+    "build": "node_modules/uglify-js/bin/uglifyjs --compress --mangle --output dist/evolvethemes-preloadr.min.js src/evolvethemes-preloadr.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "preloader"
+  ],
+  "author": "Andrea Gandino & Simone Maranzana",
+  "license": "GPL-3.0+",
+  "devDependencies": {
+    "jshint": "^2.9.5",
+    "uglify-js": "^3.4.3",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.0.8"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0"
+  }
+}
